@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Login | Smart Microgrid Manager Pro</title>
+	<style>
+		body {
+			background: linear-gradient(120deg, #3498db 0%, #2ecc71 100%);
+			font-family: 'Segoe UI', Arial, sans-serif;
+			min-height: 100vh;
+			margin: 0;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+		}
+		.login-container {
+			background: #fff;
+			border-radius: 16px;
+			box-shadow: 0 8px 32px rgba(44, 62, 80, 0.15);
+			padding: 40px 32px 32px 32px;
+			width: 350px;
+			max-width: 90vw;
+			text-align: center;
+		}
+		.login-container h2 {
+			margin-bottom: 24px;
+			color: #2ecc71;
+			font-size: 2rem;
+			font-weight: 700;
+		}
+		.login-container label {
+			display: block;
+			margin-bottom: 8px;
+			color: #34495e;
+			font-weight: 500;
+			text-align: left;
+		}
+		.login-container input[type="text"],
+		.login-container input[type="password"] {
+			width: 100%;
+			padding: 10px;
+			margin-bottom: 18px;
+			border: 1px solid #bdc3c7;
+			border-radius: 8px;
+			font-size: 1rem;
+			transition: border-color 0.2s;
+		}
+		.login-container input:focus {
+			border-color: #2ecc71;
+			outline: none;
+		}
+		.login-container button {
+			width: 100%;
+			padding: 12px;
+			background: linear-gradient(90deg, #2ecc71 60%, #3498db 100%);
+			color: #fff;
+			border: none;
+			border-radius: 8px;
+			font-size: 1.1rem;
+			font-weight: 600;
+			cursor: pointer;
+			transition: background 0.2s;
+		}
+		.login-container button:hover {
+			background: linear-gradient(90deg, #3498db 60%, #2ecc71 100%);
+		}
+		.login-container .error {
+			color: #e74c3c;
+			margin-bottom: 12px;
+			font-size: 0.95rem;
+		}
+		.login-container .success {
+			color: #2ecc71;
+			margin-bottom: 12px;
+			font-size: 0.95rem;
+		}
+	</style>
+</head>
+<body>
+	<div class="login-container">
+		<h2>Login</h2>
+		<form id="loginForm" autocomplete="off">
+			<label for="username">Username</label>
+			<input type="text" id="username" name="username" required>
+			<label for="password">Password</label>
+			<input type="password" id="password" name="password" required>
+			<button type="submit">Sign In</button>
+			<div id="message"></div>
+		</form>
+	</div>
+	<script>
+		const loginForm = document.getElementById('loginForm');
+		const messageDiv = document.getElementById('message');
+		loginForm.addEventListener('submit', function(e) {
+			e.preventDefault();
+			const username = document.getElementById('username').value.trim();
+			const password = document.getElementById('password').value.trim();
+			// Simple demo validation (replace with real auth logic)
+			if (username === "admin" && password === "microgrid") {
+				messageDiv.textContent = "Login successful!";
+				messageDiv.className = "success";
+				setTimeout(() => {
+					window.location.href = "app.py";
+				}, 1200);
+			} else {
+				messageDiv.textContent = "Invalid username or password.";
+				messageDiv.className = "error";
+			}
+		});
+	</script>
+</body>
+</html>
