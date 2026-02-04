@@ -1,0 +1,15 @@
+# requirements.txt
+# Smart Microgrid Manager Pro - Dependencies
+
+# Streamlit and core dependencies
+streamlit>=1.28.0
+pandas>=2.0.0
+numpy>=1.24.0
+
+# Visualization (plotly is used in app.py)
+plotly>=5.18.0
+
+# Optimization (pulp is used in logic.py)
+pulp>=2.7.0
+
+
