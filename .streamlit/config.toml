@@ -1,0 +1,25 @@
+[server]
+port = 8501
+enableCORS = false
+enableXsrfProtection = true
+headless = true
+
+[theme]
+primaryColor = "#1A365D"
+backgroundColor = "#FFFFFF"
+secondaryBackgroundColor = "#F0F2F6"
+textColor = "#2C3E50"
+font = "sans serif"
+
+[client]
+showSidebarNavigation = true
+
+[runner]
+magicMode = false
+installTracer = false
+fixPythonHeapDiff = true
+
+[browser]
+gatherUsageStats = false
+showAboutSidebars = false
+

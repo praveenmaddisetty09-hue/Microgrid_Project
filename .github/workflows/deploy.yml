@@ -1,0 +1,66 @@
+name: Smart Microgrid Manager CI/CD
+
+on:
+  push:
+    branches: [main, master]
+  pull_request:
+    branches: [main, master]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+      
+      - name: Run tests
+        run: |
+          python -c "from app import *; print('App imports successfully')"
+          python -c "from logic import run_optimization; print('Logic module works')"
+          python -c "from auth import *; print('Auth module works')"
+      
+      - name: Lint with Ruff
+        run: |
+          pip install ruff
+          ruff check .
+
+  deploy-staging:
+    needs: test
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/main'
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Deploy to Streamlit Cloud
+        uses: streamlit/[email protected]
+        with:
+          streamlit-app: app.py
+        env:
+          STREAMLIT_SHARING_REPO: ${{ github.repository }}
+          STREAMLIT_SHARING_BRANCH: main
+          STREAMLIT_SHING_REQUIRE_APPROVAL: false
+
+  deploy-heroku:
+    needs: test
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/main'
+    environment: production
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Deploy to Heroku
+        uses: akhileshns/[email protected]
+        with:
+          heroku_api_key: ${{ secrets.HEROKU_API_KEY }}
+          heroku_app_name: ${{ secrets.HEROKU_APP_NAME }}
+          heroku_email: ${{ secrets.HEROKU_EMAIL }}
+

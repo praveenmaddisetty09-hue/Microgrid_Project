@@ -3,10 +3,19 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Login | Smart Microgrid Manager Pro</title>
+	<title>Login | Optimal Grid Solutions</title>
 	<style>
+		:root {
+			--primary-color: #1A365D;
+			--secondary-color: #2D4A77;
+			--accent-color: #48BB78;
+			--accent-orange: #ED8936;
+			--text-light: #ffffff;
+			--text-dark: #2c3e50;
+		}
+		
 		body {
-			background: linear-gradient(120deg, #3498db 0%, #2ecc71 100%);
+			background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
 			font-family: 'Segoe UI', Arial, sans-serif;
 			min-height: 100vh;
 			margin: 0;
@@ -14,100 +23,200 @@
 			align-items: center;
 			justify-content: center;
 		}
+		
 		.login-container {
 			background: #fff;
 			border-radius: 16px;
 			box-shadow: 0 8px 32px rgba(44, 62, 80, 0.15);
 			padding: 40px 32px 32px 32px;
-			width: 350px;
+			width: 400px;
 			max-width: 90vw;
 			text-align: center;
 		}
-		.login-container h2 {
+		
+		.logo-container {
 			margin-bottom: 24px;
-			color: #2ecc71;
-			font-size: 2rem;
-			font-weight: 700;
 		}
+		
+		.logo-container svg {
+			width: 120px;
+			height: 120px;
+		}
+		
+		.login-container h1 {
+			color: var(--primary-color);
+			font-size: 24px;
+			font-weight: 700;
+			margin: 0 0 8px 0;
+		}
+		
+		.login-container .tagline {
+			color: var(--accent-color);
+			font-size: 14px;
+			margin: 0 0 24px 0;
+		}
+		
 		.login-container label {
 			display: block;
 			margin-bottom: 8px;
-			color: #34495e;
+			color: var(--text-dark);
 			font-weight: 500;
 			text-align: left;
+			font-size: 14px;
 		}
+		
 		.login-container input[type="text"],
 		.login-container input[type="password"] {
 			width: 100%;
-			padding: 10px;
+			padding: 12px;
 			margin-bottom: 18px;
-			border: 1px solid #bdc3c7;
+			border: 2px solid #e0e0e0;
 			border-radius: 8px;
-			font-size: 1rem;
-			transition: border-color 0.2s;
+			font-size: 15px;
+			transition: all 0.3s ease;
+			box-sizing: border-box;
 		}
+		
 		.login-container input:focus {
-			border-color: #2ecc71;
+			border-color: var(--accent-color);
 			outline: none;
+			box-shadow: 0 0 0 3px rgba(72, 187, 120, 0.1);
 		}
+		
 		.login-container button {
 			width: 100%;
-			padding: 12px;
-			background: linear-gradient(90deg, #2ecc71 60%, #3498db 100%);
-			color: #fff;
+			padding: 14px;
+			background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+			color: var(--text-light);
 			border: none;
 			border-radius: 8px;
-			font-size: 1.1rem;
+			font-size: 16px;
 			font-weight: 600;
 			cursor: pointer;
-			transition: background 0.2s;
+			transition: all 0.3s ease;
+			margin-top: 10px;
 		}
+		
 		.login-container button:hover {
-			background: linear-gradient(90deg, #3498db 60%, #2ecc71 100%);
+			transform: translateY(-2px);
+			box-shadow: 0 4px 12px rgba(26, 54, 93, 0.3);
 		}
+		
 		.login-container .error {
 			color: #e74c3c;
 			margin-bottom: 12px;
-			font-size: 0.95rem;
+			font-size: 14px;
+			padding: 10px;
+			background: #fdeaea;
+			border-radius: 6px;
 		}
+		
 		.login-container .success {
-			color: #2ecc71;
+			color: var(--accent-color);
 			margin-bottom: 12px;
-			font-size: 0.95rem;
+			font-size: 14px;
+			padding: 10px;
+			background: #e8f5e9;
+			border-radius: 6px;
+		}
+		
+		.footer {
+			margin-top: 24px;
+			padding-top: 20px;
+			border-top: 1px solid #eee;
+			font-size: 12px;
+			color: #999;
+		}
+		
+		.footer a {
+			color: var(--accent-color);
+			text-decoration: none;
 		}
 	</style>
 </head>
 <body>
 	<div class="login-container">
-		<h2>Login</h2>
+		<div class="logo-container">
+			<!-- Optimal Grid Solutions Logo -->
+			<svg width="150" height="150" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+				<circle cx="100" cy="100" r="95" fill="#1A365D" stroke="#48BB78" stroke-width="4"/>
+				
+				<circle cx="100" cy="80" r="15" fill="#ED8936" />
+				<g stroke="#ED8936" stroke-width="2">
+					<line x1="100" y1="55" x2="100" y2="65" />
+					<line x1="100" y1="95" x2="100" y2="105" />
+					<line x1="75" y1="80" x2="85" y2="80" />
+					<line x1="115" y1="80" x2="125" y2="80" />
+				</g>
+
+				<line x1="100" y1="80" x2="100" y2="110" stroke="#ffffff" stroke-width="3" />
+				<path d="M100 80 L85 70 L100 75 L115 70 Z" fill="#ffffff" />
+
+				<g stroke="#48BB78" stroke-width="2" fill="none">
+					<path d="M100 110 L100 140" />
+					<path d="M100 120 L80 140" />
+					<path d="M100 120 L120 140" />
+					<circle cx="100" cy="145" r="3" fill="#48BB78" />
+					<circle cx="80" cy="145" r="3" fill="#48BB78" />
+					<circle cx="120" cy="145" r="3" fill="#48BB78" />
+				</g>
+
+				<defs>
+					<path id="textPath" d="M 20, 100 A 80, 80 0 1, 1 180, 100" />
+				</defs>
+				<text fill="white" font-family="Arial" font-size="12" font-weight="bold">
+					<textPath href="#textPath" startOffset="50%" text-anchor="middle">
+						OPTIMAL GRID SOLUTIONS
+					</textPath>
+				</text>
+			</svg>
+		</div>
+		
+		<h1>Welcome Back</h1>
+		<p class="tagline">Smart Microgrid Management System</p>
+		
 		<form id="loginForm" autocomplete="off">
 			<label for="username">Username</label>
-			<input type="text" id="username" name="username" required>
+			<input type="text" id="username" name="username" placeholder="Enter your username" required>
+			
 			<label for="password">Password</label>
-			<input type="password" id="password" name="password" required>
+			<input type="password" id="password" name="password" placeholder="Enter your password" required>
+			
 			<button type="submit">Sign In</button>
 			<div id="message"></div>
 		</form>
+		
+		<div class="footer">
+			<p>Powered by <strong>Optimal Grid Solutions</strong></p>
+			<p>© 2024 All Rights Reserved</p>
+		</div>
 	</div>
+	
 	<script>
 		const loginForm = document.getElementById('loginForm');
 		const messageDiv = document.getElementById('message');
+		
 		loginForm.addEventListener('submit', function(e) {
 			e.preventDefault();
 			const username = document.getElementById('username').value.trim();
 			const password = document.getElementById('password').value.trim();
+			
 			// Simple demo validation (replace with real auth logic)
 			if (username === "admin" && password === "microgrid") {
-				messageDiv.textContent = "Login successful!";
+				messageDiv.textContent = "Login successful! Redirecting...";
 				messageDiv.className = "success";
 				setTimeout(() => {
-					window.location.href = "app.py";
-				}, 1200);
+					window.location.href = "http://localhost:8501";
+				}, 1500);
+			} else if (username && password) {
+				messageDiv.textContent = "Invalid username or password. Try admin/microgrid";
+				messageDiv.className = "error";
 			} else {
-				messageDiv.textContent = "Invalid username or password.";
+				messageDiv.textContent = "Please enter both username and password.";
 				messageDiv.className = "error";
 			}
 		});
 	</script>
 </body>
 </html>
+
